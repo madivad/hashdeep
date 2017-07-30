@@ -29,6 +29,14 @@ For example, to install to /home/foo/bin, use:
 There is complete documentation on how to use the program on the
 project's homepage, [https://github.com/jessek/hashdeep](https://github.com/jessek/hashdeep)
 
+## Release hashes
+
+The latest release is version 4.4. Here are the hashes for the Win32 versions:
+
+* MD5 047ff5311d821f667150f37695bd01b3
+* SHA256 d5e85933e74e5ba6a73f67346bc2e765075d26949c831a428166c92772f67dbc
+
+
 ## md5deep vs. hashdeep
 
 For historical reasons, the program has different options and features
@@ -51,7 +59,7 @@ Errors are reported to standard error. If no FILES are specified, reads from sta
 To perform an audit:
 
     hashdeep -r dir  > /tmp/auditfile            # Generate the audit file
-    hashdeep -a k /tmp/auditfile -r dir          # test the audit
+    hashdeep -a -k /tmp/auditfile -r dir          # test the audit
 
 Notice that the audit is performed with a standard hashdeep output
 file. (Internally, the audit is computed as part of the hashing process.)
@@ -73,7 +81,7 @@ that nobody is entirely sure that Windows actually does, and Windows
 itself may not be consistent.
 
 Version 3 of this program addressed this issue by using the TCHAR
-variable to hold filenames on Windowa dn by refusing to print them,
+variable to hold filenames on Windows and refusing to print them,
 priting a "?" instead. Version 4 of this program translates TCHAR
 strings to std::string strings at the soonest opportunity using the
 [Windows function WideCharToMultiByte]
